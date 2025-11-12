@@ -1,0 +1,50 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  <title>Collaborative Canvas</title>
+  <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div id="ui">
+    <div id="top-row">
+      <div id="room-wrap">
+        <input id="room" placeholder="room name" value="main"/>
+        <input id="name" placeholder="your name" value="guest"/>
+        <button id="joinBtn">Join</button>
+      </div>
+
+      <div id="tools">
+        <div id="tool-buttons" role="toolbar" aria-label="tools">
+          <button class="tool-btn active" id="tool-pen" data-tool="pen" title="Pen — thin">✒️<span>Pen</span></button>
+          <button class="tool-btn" id="tool-eraser" data-tool="eraser" title="Eraser">⛏️<span>Eraser</span></button>
+        </div>
+
+        <div id="controls">
+          <label class="control">
+            <span>Color</span>
+            <input id="color" type="color" value="#000000">
+          </label>
+          <label class="control">
+            <span>Size</span>
+            <input id="width" type="range" min="1" max="80" value="4">
+          </label>
+          <button id="undo" class="action-btn" title="Undo">↶</button>
+          <button id="redo" class="action-btn" title="Redo">↷</button>
+          <button id="clear" class="action-btn warn" title="Clear canvas">Clear</button>
+        </div>
+      </div>
+    </div>
+
+    <div id="users" aria-live="polite"></div>
+  </div>
+
+  <canvas id="canvas"></canvas>
+
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="canvas.js"></script>
+  <script src="websocket.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
