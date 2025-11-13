@@ -1,8 +1,8 @@
 // client/websocket.js
 // Thin socket.io wrapper with debug exposure
 
-const socket = io(); // assumes /socket.io/socket.io.js loaded from server
-// expose for debug
+const BACKEND = "https://collab-backend.onrender.com"; // <- replace with your Render URL
+const socket = io(BACKEND, { transports: ['websocket', 'polling'] });
 window.__socket = socket;
 
 function makeWS(){
